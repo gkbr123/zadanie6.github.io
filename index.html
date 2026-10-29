@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости услуги</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Калькулятор стоимости услуги</h1>
+        <p>Выберите услугу и параметры для расчёта цены</p>
+    </header>
+
+    <main class="container">
+        <section class="calculator">
+            <h2>Параметры заказа</h2>
+
+            <form id="calculator-form">
+                <fieldset class="form-group">
+                    <legend>Тип услуги:</legend>
+
+                    <label class="radio-option">
+                        <input
+                            type="radio"
+                            name="service"
+                            value="cleaning"
+                            checked
+                        >
+                        Уборка помещения
+                    </label>
+
+                    <label class="radio-option">
+                        <input
+                            type="radio"
+                            name="service"
+                            value="printing"
+                        >
+                        Печать документов
+                    </label>
+
+                    <label class="radio-option">
+                        <input
+                            type="radio"
+                            name="service"
+                            value="delivery"
+                        >
+                        Доставка
+                    </label>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="quantity">Количество:</label>
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        step="1"
+                        value="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group" id="option-container" hidden>
+                    <label for="service-option">Вариант печати:</label>
+                    <select id="service-option" name="service-option">
+                        <option value="black-white">
+                            Чёрно-белая — 5 руб./страница
+                        </option>
+                        <option value="color">
+                            Цветная — 15 руб./страница
+                        </option>
+                        <option value="photo">
+                            Фотопечать — 30 руб./страница
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="property-container" hidden>
+                    <label class="checkbox-option">
+                        <input
+                            type="checkbox"
+                            id="extra-property"
+                            name="extra-property"
+                        >
+                        Срочная доставка (+300 руб. за заказ)
+                    </label>
+                </div>
+            </form>
+
+            <section class="result-block" aria-live="polite">
+                <h2>Стоимость заказа</h2>
+                <p id="result">1000 руб.</p>
+                <p id="price-details"></p>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Калькулятор стоимости услуги · 2026</p>
+    </footer>
+</body>
+</html>
